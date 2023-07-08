@@ -1,0 +1,22 @@
+{
+  "name": "restaurant-billing-system",
+  "version": "1.0.0",
+  "description": "Billing System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server":"nodemon server.js"
+  },
+  "author": "Febin Skariya",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "server": "^1.0.38"
+  }
+}
