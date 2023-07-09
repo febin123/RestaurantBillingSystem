@@ -4,9 +4,14 @@ const bodyParser = require('body-parser')
 const cors=require('cors')
 const dotanv = require('dotenv')
 require('colors')
+const connectDB=require('./config/config')
+
 
 //dotenv config
 dotanv.config()
+
+//db config
+connectDB();
 
 //rest object
 const app=express()
