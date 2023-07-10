@@ -2,13 +2,13 @@ const express=require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors=require('cors')
-const dotanv = require('dotenv')
+const dotenv = require('dotenv')
 require('colors')
 const connectDB=require('./config/config')
 
 
 //dotenv config
-dotanv.config()
+dotenv.config()
 
 //db config
 connectDB();

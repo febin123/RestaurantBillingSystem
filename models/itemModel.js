@@ -23,4 +23,4 @@ const itemSchema =mongoose.Schema({
 
     const items=mongoose.model("Items",itemSchema)
 
-    module.exports=Items;
+    module.exports=items;
