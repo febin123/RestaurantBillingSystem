@@ -1,8 +1,17 @@
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import {BrowserRouter,Route,Routes}from 'react-router-dom'
+import Homepage from './pages/Homepage';
+import ItemPage from './pages/ItemPage';
 function App() {
   return (
     <>
-    <h1>Billing System</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Homepage/>}/>
+          <Route path='/items' element={<ItemPage/>}/>
+
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
