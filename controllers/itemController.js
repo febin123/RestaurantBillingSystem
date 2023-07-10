@@ -1,6 +1,6 @@
 const itemModel=require('../models/itemModel')
 
-export const getItemController =async(req,res)=>{
+const getItemController =async(req,res)=>{
     try{
         const items=await itemModel.find()
         res.status(200).send(items)
@@ -8,3 +8,4 @@ export const getItemController =async(req,res)=>{
         console.error(error)
     }
 }
+module.exports={getItemController}
