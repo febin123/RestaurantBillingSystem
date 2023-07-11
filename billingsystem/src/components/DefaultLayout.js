@@ -7,7 +7,9 @@ import {
   import React from 'react'
   import { Button, Layout, Menu, theme } from 'antd';
   import { useState } from 'react';
-  const { Header, Sider, Content } = Layout;
+  import "../styles/DefaultLayout.css"
+//   import DefaultLayout from './DefaultLayout';
+const { Header, Sider, Content } = Layout;
   const DefaultLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
     const {
@@ -49,7 +51,7 @@ import {
           >
             <Button
               type="text"
-            //   icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              icon={collapsed ? <MenuFoldOutlined /> : <MenuFoldOutlined />}
               onClick={() => setCollapsed(!collapsed)}
               style={{
                 fontSize: '16px',
