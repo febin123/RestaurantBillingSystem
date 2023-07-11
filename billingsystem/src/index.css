@@ -1,1 +1,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Sora&display=swap');
+
+  body{
+    font-family: 'Neucha', cursive;
+font-family: 'Sora', sans-serif;
+  }
