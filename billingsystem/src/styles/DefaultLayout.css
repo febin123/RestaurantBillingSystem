@@ -22,6 +22,7 @@
     box-shadow: 0 0 3px #ccc;
     border-radius: 5px;
     margin: 10px;
+    overflow: auto;
   }
   
   .ant-layout-has-sider {
