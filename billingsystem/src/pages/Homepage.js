@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import DefaultLayout from '../components/DefaultLayout'
 import axios from 'axios'
-import {Col, Row,col}from 'antd'
+import {Col, Row}from 'antd'
 import ItemList from '../components/ItemList'
 // import Homepage from './Homepage';
 
