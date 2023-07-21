@@ -1,0 +1,28 @@
+{
+  "name": "billing-systen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodconnectDe server.js",
+    "server": "nodemon server.js",
+    "restbilling": "npm start --prefix restbilling",
+    "dev": "concurrently \"npm run server\" \"npm run restbilling\"",
+    "seed": "node seeder.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1"
+  }
+}
