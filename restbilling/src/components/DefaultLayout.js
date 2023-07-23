@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {useSelector}from 'react-redux'
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -9,12 +10,15 @@ import {
   HomeOutlined,
   CopyOutlined,
   UnorderedListOutlined,
+  MoneyCollectFilled 
 } from "@ant-design/icons";
 import "../styles/DefaultLayout.css";
+import { rootReducer } from './../redux/rootReducer';
 const { Header, Sider, Content } = Layout;
 
  const DefaultLayout=({children})=>  {
   // const [collapsed,setCollapsed] =useState(false)
+  const {cartItems}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
   const toggle = () => {
     setCollapsed(
@@ -60,6 +64,10 @@ const [collapsed,setCollapsed] = useState(false);
                 onClick:toggle,
               }
             )}
+            <div className="cart-item">
+              <p>{cartItems.length}</p>
+              <MoneyCollectFilled />
+            </div>
           </Header>
           <Content
             className="site-layout-background"

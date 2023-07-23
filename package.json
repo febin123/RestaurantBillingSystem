@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "billing-systen",
   "version": "1.0.0",
   "description": "",
@@ -15,40 +14,15 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
-=======
-  
-  "name": "restaurant-billing-system",
-  "version": "1.0.0",
-  "description": "Billing System",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "billingSystem":"npm start --prefix billingSystem",
-    "dev":"concurrently \"npm run server\" \"npm run billingSystem\"", 
-    "seed": "node seeder.js"
-  },
-  "author": "Febin Skariya",
-  "license": "ISC",
-  "dependencies": {
-    "antd": "^5.6.4",
->>>>>>> 6f3f383bdb2688f5fff2843a6c00f34ba8ca71d6
     "colors": "^1.4.0",
     "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-<<<<<<< HEAD
     "mongoose": "^7.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1"
-=======
-    "mongoose": "^7.3.2",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.22",
-    "server": "^1.0.38"
->>>>>>> 6f3f383bdb2688f5fff2843a6c00f34ba8ca71d6
   }
 }

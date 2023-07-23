@@ -47,3 +47,21 @@
     margin-left: 10px;
   }
   
+  .ant-layout-header{
+    line-height: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cart-item{
+    /* margin-top: 10px; */
+    /* padding-left: 20px; */
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  .cart-item p{
+    margin-bottom: -5px;
+    padding-right: 10px;
+    font-weight: bold;
+  
+  }
