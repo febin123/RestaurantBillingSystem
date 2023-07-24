@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import {useSelector}from 'react-redux'
 import { Layout, Menu } from "antd";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -17,6 +17,7 @@ import { rootReducer } from './../redux/rootReducer';
 const { Header, Sider, Content } = Layout;
 
  const DefaultLayout=({children})=>  {
+  const navigate=useNavigate();
   // const [collapsed,setCollapsed] =useState(false)
   const {cartItems}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
@@ -70,7 +71,8 @@ const [collapsed,setCollapsed] = useState(false);
                 onClick:toggle,
               }
             )}
-            <div className="cart-item">
+            <div className="cart-item d-flex justify-content-space-between flex-row" 
+            onClick={()=> navigate('/cart')}>
               <p>{cartItems.length}</p>
               <MoneyCollectFilled />
             </div>
