@@ -10,7 +10,7 @@ import {
   HomeOutlined,
   CopyOutlined,
   UnorderedListOutlined,
-  MoneyCollectFilled 
+  ContainerOutlined
 } from "@ant-design/icons";
 import "../styles/DefaultLayout.css";
 import { rootReducer } from './../redux/rootReducer';
@@ -18,7 +18,7 @@ const { Header, Sider, Content } = Layout;
 
  const DefaultLayout=({children})=>  {
   const navigate=useNavigate();
-  // const [collapsed,setCollapsed] =useState(false)
+  
   const {cartItems}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
 
@@ -55,7 +55,7 @@ const [collapsed,setCollapsed] = useState(false);
               <Link to="/items">Items</Link>
             </Menu.Item>
             <Menu.Item key="/customers" icon={<UserOutlined />}>
-              <Link to="/customers">Cutomers</Link>
+              <Link to="/tables">Tables</Link>
             </Menu.Item>
             <Menu.Item key="/logout" icon={<LogoutOutlined />}>
               Logout
@@ -74,7 +74,7 @@ const [collapsed,setCollapsed] = useState(false);
             <div className="cart-item d-flex justify-content-space-between flex-row" 
             onClick={()=> navigate('/cart')}>
               <p>{cartItems.length}</p>
-              <MoneyCollectFilled />
+              <ContainerOutlined />
             </div>
           </Header>
           <Content

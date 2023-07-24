@@ -55,13 +55,14 @@
   }
   .cart-item{
     /* margin-top: 10px; */
-    /* padding-left: 20px; */
+    padding-left: 20px;
     padding-right: 40px;
     cursor: pointer;
   }
   .cart-item p{
-    margin-bottom: -5px;
-    padding-right: 10px;
+    /* margin-bottom: -5px; */
+    padding-right: 0px;
+    padding-top: 10px;
     font-weight: bold;
   
   }
