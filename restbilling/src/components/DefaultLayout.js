@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import {useSelector}from 'react-redux'
+import React,{useEffect, useState} from "react";
+import {useSelector,useDispatch}from 'react-redux'
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -20,11 +20,14 @@ const { Header, Sider, Content } = Layout;
   // const [collapsed,setCollapsed] =useState(false)
   const {cartItems}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
+const dispatch=useDispatch()
   const toggle = () => {
     setCollapsed(
     !collapsed
     );
   };
+  
+  useEffect
 
   
     return (
