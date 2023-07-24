@@ -1,11 +1,22 @@
 import React from 'react'
 import DefaultLayout from '../components/DefaultLayout'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './../redux/rootReducer';
 import {DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined} from '@ant-design/icons'
 import { Table } from 'antd';
 const TablePage = () => {
+
+  const dispatch=useDispatch()
   const {cartItems}=useSelector(state=>state.rootReducer)
+
+  //handle increament
+  const handleIncreament=(record)=>{
+      dispatch({
+        type:'UPDATE',
+        payload:{...record,quantity:record.quantity+1},
+      })
+  }
+
   const columns=[
     {title:'Name',dataIndex:'name'},
     {title:'Image',dataIndex:'image',
@@ -13,7 +24,7 @@ const TablePage = () => {
     {title:'Price',dataIndex:'price'},
     {title:'Quantity',dataIndex:'_id',
     render:(id,record)=>
-    <div><PlusCircleOutlined className='mx-3' style={{cursor:'pointer'}}/>
+    <div><PlusCircleOutlined className='mx-3' style={{cursor:'pointer'}} onClick={()=>handleIncreament(record)}/>
      <b>{record.quantity}</b>
      <MinusCircleOutlined className='mx-3' style={{cursor:'pointer'}}/>
       </div>},
