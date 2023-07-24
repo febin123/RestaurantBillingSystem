@@ -3,7 +3,7 @@ import {Button, Card } from 'antd';
 import { useDispatch } from 'react-redux';
 const ItemList = ({item}) => {
   const dispatch=useDispatch()
-  //update cart handler
+  //update table handler
   const handleAddToTable=()=>{
       dispatch({
         type:'updateTable',

@@ -8,7 +8,7 @@ export const rootReducer=(state=initalState,action)=>{
         case "updateTable":
             return{
                 ...state,
-                cartItems:action.payload, 
+                cartItems:[...state.cartItems,action.payload], 
             }
         default:
             return state
