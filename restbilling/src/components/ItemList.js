@@ -7,7 +7,7 @@ const ItemList = ({item}) => {
   const handleAddToTable=()=>{
       dispatch({
         type:'updateTable',
-        payload:item,
+        payload:{ ...item,quantity:1},
       })
   }
   const { Meta } = Card;
