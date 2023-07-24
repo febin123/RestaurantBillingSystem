@@ -1,7 +1,14 @@
 import React from 'react'
 import {Button, Card } from 'antd';
-
+import { useDispatch } from 'react-redux';
 const ItemList = ({item}) => {
+  const dispatch=useDispatch()
+  //update cart handler
+  const handleAddToTable=()=>{
+      dispatch({
+        type:'updateTable',
+      })
+  }
   const { Meta } = Card;
   return (
     <div>
@@ -15,7 +22,7 @@ const ItemList = ({item}) => {
   >
     <Meta title={item.name} />
     <div className="item-button">
-    <Button>Add to Table</Button>
+    <Button onClick={()=>handleAddToTable()}>Add to Table</Button>
     </div>
   </Card>
     </div>

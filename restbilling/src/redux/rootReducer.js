@@ -5,6 +5,11 @@ const initalState={
 
 export const rootReducer=(state=initalState,action)=>{
     switch(action.type){
+        case "updateTable":
+            return{
+                ...state,
+                cartItems:action.payload, 
+            }
         default:
             return state
     }
