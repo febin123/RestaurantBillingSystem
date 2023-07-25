@@ -20,6 +20,15 @@ export const rootReducer=(state=initalState,action)=>{
                 ...state,
                 cartItems:state.cartItems.map(item=>item._id === action.payload._id ? {...item,quantity:action.payload.quantity}:item)
             }
+        
+        case "showLoading": return{
+            ...state,
+            loading:true
+        }
+        case "hideLoading": return{
+            ...state,
+            loading:false
+        }
         default:
             return state
     }

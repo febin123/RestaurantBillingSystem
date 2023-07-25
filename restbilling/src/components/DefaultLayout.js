@@ -19,7 +19,7 @@ const { Header, Sider, Content } = Layout;
  const DefaultLayout=({children})=>  {
   const navigate=useNavigate();
   
-  const {cartItems}=useSelector(state=>state.rootReducer)
+  const {cartItems,loading}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
 
   const toggle = () => {
@@ -36,6 +36,15 @@ const [collapsed,setCollapsed] = useState(false);
   
     return (
       <Layout>
+        {loading && (
+
+          <div className="spinner">
+          <div className="spinner-border"role="status">
+                 
+          </div>
+          </div>
+
+        )}
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
             <h4 className="text-center text-light font-wight-bold mt-4">Restaurant Billing System</h4>

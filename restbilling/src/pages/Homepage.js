@@ -3,21 +3,27 @@ import DefaultLayout from '../components/DefaultLayout'
 import axios from 'axios'
 import {Col, Row}from 'antd'
 import ItemList from '../components/ItemList'
+import { useDispatch } from 'react-redux'
 // import Homepage from './Homepage';
 
 const Homepage = () => {
 
     const[itemsData,setItemsData]=useState([])
 
+    const dispatch=useDispatch()
+
     //useEffect
     useEffect(()=>{
         const getAllItems =async()=>{
+          dispatch({type:'showLoading'})
             try{
                 const {data}=await axios.get('/api/items/get-item')
+                dispatch({type:'hideLoading'})
                 setItemsData(data)
                 console.log(data)
             }
             catch(error){
+              dispatch({type:'hideLoading'})
                 console.error(error) 
             }
         }
