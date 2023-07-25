@@ -16,6 +16,14 @@ const TablePage = () => {
         payload:{...record,quantity:record.quantity+1},
       })
   }
+  const handleDecreament=(record)=>{
+    if(record.quantity!==1){
+    dispatch({
+      type:'UPDATE',
+      payload:{...record,quantity:record.quantity-1},
+    })
+  }
+}
 
   const columns=[
     {title:'Name',dataIndex:'name'},
@@ -26,7 +34,7 @@ const TablePage = () => {
     render:(id,record)=>
     <div><PlusCircleOutlined className='mx-3' style={{cursor:'pointer'}} onClick={()=>handleIncreament(record)}/>
      <b>{record.quantity}</b>
-     <MinusCircleOutlined className='mx-3' style={{cursor:'pointer'}}/>
+     <MinusCircleOutlined className='mx-3' style={{cursor:'pointer'}} onClick={()=>handleDecreament(record)}/>
       </div>},
     {title:'Actions',dataIndex:"_id",render:(id,record)=><DeleteOutlined/>}
   ]
