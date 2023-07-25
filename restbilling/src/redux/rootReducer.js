@@ -10,6 +10,11 @@ export const rootReducer=(state=initalState,action)=>{
                 ...state,
                 cartItems:[...state.cartItems,action.payload], 
             }
+            case "deleteTable":
+                return{
+                    ...state,
+                    cartItems:state.cartItems.filter((item)=>item._id !== action.payload._id ) 
+                }
         case "UPDATE":
             return{
                 ...state,

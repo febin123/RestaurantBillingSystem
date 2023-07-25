@@ -36,7 +36,7 @@ const TablePage = () => {
      <b>{record.quantity}</b>
      <MinusCircleOutlined className='mx-3' style={{cursor:'pointer'}} onClick={()=>handleDecreament(record)}/>
       </div>},
-    {title:'Actions',dataIndex:"_id",render:(id,record)=><DeleteOutlined/>}
+    {title:'Actions',dataIndex:"_id",render:(id,record)=><DeleteOutlined onClick={()=>dispatch({type:'deleteTable',payload:record})}/>}
   ]
   return (
     <DefaultLayout>
