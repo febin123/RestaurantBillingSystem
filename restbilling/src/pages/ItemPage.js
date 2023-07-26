@@ -3,10 +3,10 @@ import DefaultLayout from '../components/DefaultLayout'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import {DeleteOutlined,EditOutlined} from '@ant-design/icons'
-import { Table } from 'antd'
+import { Modal, Table } from 'antd'
 const ItemPage = () => {
   const[itemsData,setItemsData]=useState([])
-
+  const[addEditModal,setAddEditModal]=useState(false) 
   const dispatch=useDispatch()
 
   //useEffect
@@ -40,8 +40,15 @@ const ItemPage = () => {
   return (
     <div>
         <DefaultLayout>
-      <h1>Item List</h1>
+          <div className="d-flex justify-content-between">
+              <h1>Item List</h1>
+              <button type='primary' onClick={()=>setAddEditModal(true)}>Add Item</button>
+          </div>
       <Table columns={columns} dataSource={itemsData} bordered />
+
+      <Modal visible={addEditModal} title='Add New Item' footer={false}>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, esse.
+      </Modal>
       </DefaultLayout>
     </div>
   )
