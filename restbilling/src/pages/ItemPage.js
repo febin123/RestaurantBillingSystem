@@ -3,7 +3,8 @@ import DefaultLayout from '../components/DefaultLayout'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import {DeleteOutlined,EditOutlined} from '@ant-design/icons'
-import { Modal, Table } from 'antd'
+import {Button, Form, Input, message, Modal, Select, Table  } from 'antd'
+import { Layout } from 'antd';
 const ItemPage = () => {
   const[itemsData,setItemsData]=useState([])
   const[addEditModal,setAddEditModal]=useState(false) 
@@ -47,7 +48,36 @@ const ItemPage = () => {
       <Table columns={columns} dataSource={itemsData} bordered />
 
       <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, esse.
+      <Form
+            initialValues={editingItem}
+            layout="vertical"
+            onFinish={onFinish}
+          >
+ <Form.Item name="name" label="Name">
+              <Input />
+            </Form.Item>
+            <Form.Item name="price" label="Price">
+              <Input />
+            </Form.Item>
+            <Form.Item name="image" label="Image URL">
+              <Input />
+            </Form.Item>
+
+            <Form.Item name="category" label="Category">
+              <Select>
+                <Select.Option value="fruits">Fruits</Select.Option>
+                <Select.Option value="vegetables">Vegetables</Select.Option>
+                <Select.Option value="meat">Meat</Select.Option>
+              </Select>
+            </Form.Item>
+
+            <div className="d-flex justify-content-end">
+              <Button htmlType="submit" type="primary">
+                SAVE
+              </Button>
+            </div>
+
+            </Form>
       </Modal>
       </DefaultLayout>
     </div>
