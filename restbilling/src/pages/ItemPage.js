@@ -28,6 +28,9 @@ const ItemPage = () => {
       getAllItems();
   },[])
 
+  const onFinish=(values)=>{
+    console.log(values)
+  }
   const columns=[
     {title:'Name',dataIndex:'name'},
     {title:'Image',dataIndex:'image',
@@ -49,11 +52,11 @@ const ItemPage = () => {
 
       <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
       <Form
-            initialValues={editingItem}
+        
             layout="vertical"
             onFinish={onFinish}
           >
- <Form.Item name="name" label="Name">
+            <Form.Item name="name" label="Name">
               <Input />
             </Form.Item>
             <Form.Item name="price" label="Price">
@@ -65,9 +68,9 @@ const ItemPage = () => {
 
             <Form.Item name="category" label="Category">
               <Select>
-                <Select.Option value="fruits">Fruits</Select.Option>
-                <Select.Option value="vegetables">Vegetables</Select.Option>
-                <Select.Option value="meat">Meat</Select.Option>
+                <Select.Option value="starter">Starter</Select.Option>
+                <Select.Option value="mainCourse">Main Course</Select.Option>
+                <Select.Option value="desert">Desert</Select.Option>
               </Select>
             </Form.Item>
 
