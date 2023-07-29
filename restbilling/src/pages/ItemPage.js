@@ -46,7 +46,7 @@ const ItemPage = () => {
           </div>
       <Table columns={columns} dataSource={itemsData} bordered />
 
-      <Modal visible={addEditModal} title='Add New Item' footer={false}>
+      <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, esse.
       </Modal>
       </DefaultLayout>
