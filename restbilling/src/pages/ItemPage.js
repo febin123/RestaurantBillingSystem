@@ -41,7 +41,9 @@ const ItemPage = () => {
   //adding fooditems into the backend
   const onFinish=(values)=>{
     dispatch({type:'showLoading'})
-    try{
+
+    if(editingItem === null){
+      try{
         // adding the food items
         const {data}=axios.post('/api/items/add-item',values)
         dispatch({type:'hideLoading'})
@@ -54,6 +56,23 @@ const ItemPage = () => {
       dispatch({type:'hideLoading'})
       message.error("something went wrong")
         console.error(error) 
+    }
+    }else{
+      try{
+        // editing the food items
+        const {data}=axios.post('/api/items/edit-item',{...values,itemId:editingItem._id})
+        dispatch({type:'hideLoading'})
+        message.success("Food Item edited  sucessfully")
+        console.log(data)
+        setEditingItem(null)
+        setAddEditModal(false)
+        getAllItems()
+    }
+    catch(error){
+      dispatch({type:'hideLoading'})
+      message.error("something went wrong")
+        console.error(error) 
+    }
     }
   }
   // number of columns in each food items
