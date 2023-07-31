@@ -78,40 +78,42 @@ const ItemPage = () => {
           </div>
       <Table columns={columns} dataSource={itemsData} bordered />
 
-      {/* adding food item modal */}
-      <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
-      <Form
-        
-            layout="vertical"
-            onFinish={onFinish}
-          >
-            {/* add new food item modal */}
-            <Form.Item name="name" label="Name">
-              <Input />
-            </Form.Item>
-            <Form.Item name="price" label="Price">
-              <Input />
-            </Form.Item>
-            <Form.Item name="image" label="Image URL">
-              <Input />
-            </Form.Item>
-
-            <Form.Item name="category" label="Category">
-              <Select>
-                <Select.Option value="starter">Starter</Select.Option>
-                <Select.Option value="mainCourse">Main Course</Select.Option>
-                <Select.Option value="desert">Desert</Select.Option>
-              </Select>
-            </Form.Item>
-
-            <div className="d-flex justify-content-end">
-              <Button htmlType="submit" type="primary">
-                SAVE
-              </Button>
-            </div>
-
-            </Form>
-      </Modal>
+      {/* adding & edit food item modal */}
+      {addEditModal && (
+          <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
+          <Form
+                initialValues={editingItem}
+                layout="vertical"
+                onFinish={onFinish}
+              >
+                {/* add new food item modal */}
+                <Form.Item name="name" label="Name">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="price" label="Price">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="image" label="Image URL">
+                  <Input />
+                </Form.Item>
+    
+                <Form.Item name="category" label="Category">
+                  <Select>
+                    <Select.Option value="starter">Starter</Select.Option>
+                    <Select.Option value="mainCourse">Main Course</Select.Option>
+                    <Select.Option value="desert">Desert</Select.Option>
+                  </Select>
+                </Form.Item>
+    
+                <div className="d-flex justify-content-end">
+                  <Button htmlType="submit" type="primary">
+                    SAVE
+                  </Button>
+                </div>
+    
+                </Form>
+          </Modal>
+      )}
       </DefaultLayout>
     </div>
   )
