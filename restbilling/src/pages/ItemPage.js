@@ -8,6 +8,7 @@ import { Layout } from 'antd';
 
 const ItemPage = () => {
   const[itemsData,setItemsData]=useState([])
+  const[editingItem,setEditingItem]=useState(null)
   const[addEditModal,setAddEditModal]=useState(false) 
   const dispatch=useDispatch()
   const getAllItems = () => {
@@ -62,15 +63,17 @@ const ItemPage = () => {
     render:(image,record)=><img src={image} alt={record.name} height="60" width="60"/>},
     {title:'Price',dataIndex:'price'},
     {title:'Category',dataIndex:'category'},
-    {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'> <DeleteOutlined className='mx-2' />
-    <EditOutlined className='mx-2'/> </div> }
+    {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
+      <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
+       <DeleteOutlined className='mx-2' />
+     </div> }
   ]
 
   return (
     <div>
         <DefaultLayout>
           <div className="d-flex justify-content-between">
-              <h1>Item List</h1>
+              <h1>Food Item List</h1>
               <button type='primary' onClick={()=>setAddEditModal(true)}>Add Item</button>
           </div>
       <Table columns={columns} dataSource={itemsData} bordered />

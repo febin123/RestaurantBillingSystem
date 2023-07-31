@@ -67,7 +67,7 @@ const [collapsed,setCollapsed] = useState(false);
               <Link to="/bills">Bills</Link>
             </Menu.Item>
             <Menu.Item key="/items" icon={<UnorderedListOutlined />}>
-              <Link to="/items">Items</Link>
+              <Link to="/items">Food Items</Link>
             </Menu.Item>
             <Menu.Item key="/customers" icon={<UserOutlined />}>
               <Link to="/tables">Tables</Link>
