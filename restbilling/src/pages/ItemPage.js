@@ -35,6 +35,8 @@ const ItemPage = () => {
   // const onFinish=(values)=>{
   //   console.log(values)
   // }
+
+  
   //adding fooditems into the backend
   const onFinish=(values)=>{
     dispatch({type:'showLoading'})

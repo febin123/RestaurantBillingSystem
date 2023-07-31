@@ -18,7 +18,7 @@ const itemSchema =mongoose.Schema({
         required:true
     }
 },
-    {timestamp:true}
+    {timestamps:true}
     );
 
     const items=mongoose.model("Items",itemSchema)
