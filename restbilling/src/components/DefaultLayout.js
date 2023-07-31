@@ -22,6 +22,8 @@ const { Header, Sider, Content } = Layout;
   const {cartItems,loading}=useSelector(state=>state.rootReducer)
 const [collapsed,setCollapsed] = useState(false);
 
+
+// start of toggle menu
   const toggle = () => {
     setCollapsed(
     !collapsed
@@ -38,6 +40,7 @@ const [collapsed,setCollapsed] = useState(false);
       <Layout>
         {loading && (
 
+          //loading spinner
           <div className="spinner">
           <div className="spinner-border"role="status">
                  
@@ -46,6 +49,8 @@ const [collapsed,setCollapsed] = useState(false);
 
         )}
         <Sider trigger={null} collapsible collapsed={collapsed}>
+
+          {/* logo */}
           <div className="logo">
             <h4 className="text-center text-light font-wight-bold mt-4">Restaurant Billing System</h4>
           </div>
@@ -54,6 +59,7 @@ const [collapsed,setCollapsed] = useState(false);
             mode="inline"
             defaultSelectedKeys={window.location.pathname}
           >
+            {/*Menu Item*/}
             <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Home</Link>
             </Menu.Item>

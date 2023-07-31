@@ -3,6 +3,7 @@ import {Button, Card } from 'antd';
 import { useDispatch } from 'react-redux';
 const ItemList = ({item}) => {
   const dispatch=useDispatch()
+
   //update table handler
   const handleAddToTable=()=>{
       dispatch({
@@ -10,6 +11,7 @@ const ItemList = ({item}) => {
         payload:{ ...item,quantity:1},
       })
   }
+  // Food item card
   const { Meta } = Card;
   return (
     <div>
@@ -23,6 +25,8 @@ const ItemList = ({item}) => {
   >
     <Meta title={item.name} />
     <div className="item-button">
+
+      {/* item add button */}
     <Button onClick={()=>handleAddToTable()}>Add to Table</Button>
     </div>
   </Card>

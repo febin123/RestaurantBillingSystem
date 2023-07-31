@@ -17,6 +17,8 @@ const Homepage = () => {
         const getAllItems =async()=>{
           dispatch({type:'showLoading'})
             try{
+
+              // getting the food items
                 const {data}=await axios.get('/api/items/get-item')
                 dispatch({type:'hideLoading'})
                 setItemsData(data)
@@ -34,6 +36,7 @@ const Homepage = () => {
       <DefaultLayout>
       <Row>
         {
+            // getting the food item list from the api
             itemsData.map(item=>(
                 <Col xs={24} lg={6} md={12} sm={6}>
                 <ItemList item={item}/>

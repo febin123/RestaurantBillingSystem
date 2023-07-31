@@ -16,6 +16,7 @@ const TablePage = () => {
         payload:{...record,quantity:record.quantity+1},
       })
   }
+  // handle decrement
   const handleDecreament=(record)=>{
     if(record.quantity!==1){
     dispatch({
@@ -24,7 +25,7 @@ const TablePage = () => {
     })
   }
 }
-
+// food item atributes
   const columns=[
     {title:'Name',dataIndex:'name'},
     {title:'Image',dataIndex:'image',
