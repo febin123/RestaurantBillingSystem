@@ -80,7 +80,10 @@ const ItemPage = () => {
 
       {/* adding & edit food item modal */}
       {addEditModal && (
-          <Modal onCancel={()=>setAddEditModal(false)} visible={addEditModal} title='Add New Item' footer={false}>
+          <Modal onCancel={()=>{
+            setEditingItem(null)
+            setAddEditModal(false)
+          }} visible={addEditModal} title={`${editingItem !=null ? 'Edit Food Item' : 'Add new Food Item'}`} footer={false}>
           <Form
                 initialValues={editingItem}
                 layout="vertical"
