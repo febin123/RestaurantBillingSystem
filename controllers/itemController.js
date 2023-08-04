@@ -21,4 +21,14 @@ const addItemController = async (req, res) => {
       console.log(error);
     }
   };
-module.exports={getItemController,addItemController}
+
+  const editItemController = async (req, res) => {
+    try {
+        await itemModel.findOneAndUpdate({_id:req.body.itemId},req.body)
+      res.status(201).send("Food Item Edited Successfully!");
+    } catch (error) {
+      res.status(400).send("error", error);
+      console.log(error);
+    }
+  };
+module.exports={getItemController,addItemController,editItemController  }
