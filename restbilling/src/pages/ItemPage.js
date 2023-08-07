@@ -4,13 +4,15 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import {DeleteOutlined,EditOutlined} from '@ant-design/icons'
 import {Button, Form, Input, message, Modal, Select, Table  } from 'antd'
-import { Layout } from 'antd';
 
 const ItemPage = () => {
   const[itemsData,setItemsData]=useState([])
   const[editingItem,setEditingItem]=useState(null)
   const[addEditModal,setAddEditModal]=useState(false) 
   const dispatch=useDispatch()
+
+
+  //get Items API
   const getAllItems = () => {
     dispatch({ type: "showLoading" });
     axios
@@ -25,7 +27,23 @@ const ItemPage = () => {
       });
   };
 
+  //delete Item API
 
+  const deleteItem = (record) => {
+    dispatch({ type: "showLoading" });
+    axios
+      .post("/api/items/delete-item",{itemId:record._id})
+      .then((response) => {
+        dispatch({ type: "hideLoading" });
+        message.success("Food Item deleted sucessfully")
+        getAllItems()
+      })
+      .catch((error) => {
+        dispatch({ type: "hideLoading" });
+        message.error("Something went wrong")
+        console.log(error);
+      });
+  };
 
 
   //useEffect
@@ -84,7 +102,7 @@ const ItemPage = () => {
     {title:'Category',dataIndex:'category'},
     {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
       <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
-       <DeleteOutlined className='mx-2' />
+       <DeleteOutlined className='mx-2' onClick={()=>deleteItem(record) } />
      </div> }
   ]
 

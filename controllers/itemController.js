@@ -31,4 +31,14 @@ const addItemController = async (req, res) => {
       console.log(error);
     }
   };
-module.exports={getItemController,addItemController,editItemController  }
+
+  const deleteItemController = async (req, res) => {
+    try {
+        await itemModel.findOneAndDelete({_id:req.body.itemId})
+      res.status(201).send("Food Item Deleted Successfully!");
+    } catch (error) {
+      res.status(400).send("error", error);
+      console.log(error);
+    }
+  };
+module.exports={getItemController,addItemController,editItemController,deleteItemController  }
