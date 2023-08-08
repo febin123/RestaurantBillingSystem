@@ -49,6 +49,14 @@ const Homepage = () => {
   return (
     <div>
       <DefaultLayout>
+        <div className="d-flex">
+          {categories.map((category)=>{
+            return <div className='d-flex category'>
+                <h5>{category.name}</h5>
+                <img src="{category.imageUrl}" height='60' width='80' alt="category" />
+            </div>
+          })}
+        </div>
       <Row>
         {
             // getting the food item list from the api

@@ -92,3 +92,20 @@
     box-shadow: none !important;
     outline: none !important;
   }
+
+  .category{
+    border: 2px solid rgb(51,50,50);
+    margin-right: 50px;
+    align-items: center;
+    padding-left: 25px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  .category h5{
+    margin-right: 25px;
+  }
+  /* .category img{
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    
+  } */
