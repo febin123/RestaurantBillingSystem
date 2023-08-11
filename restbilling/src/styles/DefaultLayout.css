@@ -100,12 +100,18 @@
     padding-left: 25px;
     border-radius: 10px;
     margin-bottom: 5px;
+    cursor: pointer;
+
   }
   .category h5{
     margin-right: 25px;
   }
-  /* .category img{
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-    
-  } */
+  .category img{
+      /* border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; */
+    margin: -3px;
+  }
+  .selected-category{
+    /* border: 3px solid rgb(3,38,66); */
+    border: 5px solid green;
+  }
