@@ -28,6 +28,10 @@ app.use("/api/items", require("./routes/itemRoutes"));
 app.get("/",(req,res)=>{
     res.send("<h1>BACKEND</h1>")
 })
+
+const userRoute=require('./routes/userRoutes')
+
+app.use('/api/users/',userRoute)
 //port
 const PORT = process.env.PORT || 8080;
 
