@@ -1,4 +1,5 @@
 const express= require('express');
+const UserModel=require('../models/userModel')
 const { getItemController,addItemController,editItemController, deleteItemController } = require('../controllers/itemController');
 
 const router=express.Router();
@@ -9,9 +10,8 @@ const router=express.Router();
 //Method for login the user
 router.post('/login',async(req,res)=>{
     try{
-        const newitem=new ItemModel(req.body)
-        await newitem.save()
-        res.send("User Logged In")
+        await UserModel.findOne({userId:req.body.userId,password:req.body.password,verified:true})   
+        res.send("Login Successfull")
     }catch(error){
         res.status(400).json(error)
     }
@@ -20,9 +20,9 @@ router.post('/login',async(req,res)=>{
 //Method for register the user
 router.post('/register',async(req,res)=>{
     try{
-        const newitem=new ItemModel(req.body)
-        await newitem.save()
-        res.send("User Logged In")
+        const newuse=new UserModel(req.body)
+        await newuser.save()
+        res.send("User Registered Successfully")
     }catch(error){
         res.status(400).json(error)
     }

@@ -13,7 +13,7 @@ const userchema =mongoose.Schema({
         type:String,
         required:true
     },
-    verifed:{
+    verified:{
         type:Boolean,
         required:false
     }
