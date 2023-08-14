@@ -12,6 +12,10 @@ const userchema =mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    verifed:{
+        type:Boolean,
+        required:false
     }
 },
     {timestamps:true}
