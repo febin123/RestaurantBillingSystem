@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Routes}from 'react-router-dom'
 import Homepage from './pages/Homepage';
 import ItemPage from './pages/ItemPage';
 import TablePage from './pages/TablePage';
+import Register from './pages/Register';
 function App() {
   return (
     <>
@@ -10,7 +11,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/items' element={<ItemPage/>}/>
-          <Route path='/cart' element={<TablePage/>}/>
+          <Route path='/tables' element={<TablePage/>}/>
+          <Route path='/register' element={<Register/>}/>
 
         </Routes>
       </BrowserRouter>

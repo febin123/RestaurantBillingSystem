@@ -87,7 +87,7 @@ const [collapsed,setCollapsed] = useState(false);
               }
             )}
             <div className="cart-item d-flex justify-content-space-between flex-row" 
-            onClick={()=> navigate('/cart')}>
+            onClick={()=> navigate('/tables')}>
               <p>{cartItems.length}</p>
               <ContainerOutlined />
             </div>
