@@ -1,12 +1,22 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Col, Row}from 'antd'
+import axios from 'axios'
 import '../styles/authentication.css'
 import {Button, Form, Input, message, Modal} from 'antd'
+import { useDispatch } from 'react-redux';
 function Register() {
 
+    const dispatch=useDispatch()
     const onFinish=(values)=>{
-        console.log(values)
+        dispatch({type:'showLoading'})
+        axios.post('/api/users/register',values).then((res)=>{
+          dispatch({type:'hideLoading'})
+          message.success('Registeration successfull, please wait for verification')
+        }).catch(()=>{
+          dispatch({type:'hideLoading'})
+          message.error('Something went wrong')
+        })
     }
   return (
     <div className='authentication'>
@@ -24,7 +34,7 @@ function Register() {
                 <Form.Item name="name" label="Name">
                   <Input />
                 </Form.Item>
-                <Form.Item name="userid" label="User ID">
+                <Form.Item name="userId" label="User ID">
                   <Input />
                 </Form.Item>
                 <Form.Item name="password" label="Password">

@@ -32,6 +32,7 @@ app.get("/",(req,res)=>{
 const userRoute=require('./routes/userRoutes')
 
 app.use('/api/users/',userRoute)
+
 //port
 const PORT = process.env.PORT || 8080;
 
