@@ -20,10 +20,10 @@ function Register() {
                 <Form.Item name="name" label="Name">
                   <Input />
                 </Form.Item>
-                <Form.Item name="price" label="Price">
+                <Form.Item name="userid" label="User ID">
                   <Input />
                 </Form.Item>
-                <Form.Item name="image" label="Image URL">
+                <Form.Item name="password" label="Password">
                   <Input />
                 </Form.Item>
     
