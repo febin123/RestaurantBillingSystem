@@ -29,8 +29,8 @@ function Login() {
                   <Input type='password'/>
                 </Form.Item>
     
-                <div className="d-flex justify-content-end align-items-center">
-                    <Link to="./Login.js">Not Yet Registered? Click Here To Register</Link>
+                <div className="d-flex justify-content-between align-items-center">
+                    <Link to="/register">Not Yet Registered? Click Here To Register</Link>
                   <Button htmlType="submit" type="primary">
                     Login
                   </Button>
