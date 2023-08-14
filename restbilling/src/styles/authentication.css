@@ -10,3 +10,7 @@
     justify-content: center !important;
    
 }
+.authentication form{
+    background-color: white;
+    padding: 20px;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {Col, Row}from 'antd'
 import '../styles/authentication.css'
 import {Button, Form, Input, message, Modal} from 'antd'
@@ -16,6 +17,9 @@ function Register() {
                 layout="vertical"
                 onFinish={onFinish}
               >
+                <h1> <b> Restaurant Billing System </b></h1>
+                <hr />
+                <h3>Register</h3>
                 {/* add new food item modal */}
                 <Form.Item name="name" label="Name">
                   <Input />
@@ -28,8 +32,9 @@ function Register() {
                 </Form.Item>
     
                 <div className="d-flex justify-content-end">
+                    <Link to="./Login.js">Already Registered? Click Here To Login</Link>
                   <Button htmlType="submit" type="primary">
-                    SAVE
+                    Register
                   </Button>
                 </div>
     
