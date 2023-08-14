@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {Col, Row}from 'antd'
+import '../styles/authentication.css'
 import {Button, Form, Input, message, Modal} from 'antd'
 function Register() {
 
@@ -8,7 +9,9 @@ function Register() {
     }
   return (
     <div className='authentication'>
-           <Form
+        <Row>
+            <Col lg={8} xs={22}>
+                <Form
 
                 layout="vertical"
                 onFinish={onFinish}
@@ -30,7 +33,9 @@ function Register() {
                   </Button>
                 </div>
     
-          </Form>
+                </Form>
+          </Col>
+        </Row>
     </div>
   )
 }

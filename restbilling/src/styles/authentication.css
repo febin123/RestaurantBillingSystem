@@ -1,0 +1,10 @@
+.authentication{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.authentication .ant-row{
+    width: 100%;
+    justify-content: center !important;
+   
+}
