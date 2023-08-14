@@ -2,12 +2,22 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Col, Row}from 'antd'
 import '../styles/authentication.css'
+import { useDispatch } from 'react-redux';
+import axios from 'axios'
 import {Button, Form, Input, message, Modal} from 'antd'
 function Login() {
 
-    const onFinish=(values)=>{
-        console.log(values)
-    }
+  const dispatch=useDispatch()
+  const onFinish=(values)=>{
+    dispatch({type:'showLoading'})
+    axios.post('/api/users/login',values).then((res)=>{
+      dispatch({type:'hideLoading'})
+      message.success('Login Successfull')
+    }).catch(()=>{
+      dispatch({type:'hideLoading'})
+      message.error('Something went wrong')
+    })
+}
   return (
     <div className='authentication'>
         <Row>

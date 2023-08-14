@@ -20,7 +20,7 @@ router.post('/login',async(req,res)=>{
 //Method for register the user
 router.post('/register',async(req,res)=>{
     try{
-        const newuser=new UserModel(req.body)
+        const newuser=new UserModel({})
         await newuser.save()
         res.send("User Registered Successfully")
     }catch(error){
