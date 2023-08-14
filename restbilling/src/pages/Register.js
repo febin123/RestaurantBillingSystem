@@ -24,7 +24,7 @@ function Register() {
                   <Input />
                 </Form.Item>
                 <Form.Item name="password" label="Password">
-                  <Input />
+                  <Input type='password'/>
                 </Form.Item>
     
                 <div className="d-flex justify-content-end">
