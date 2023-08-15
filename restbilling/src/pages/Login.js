@@ -4,7 +4,7 @@ import {Col, Row}from 'antd'
 import '../styles/authentication.css'
 import { useDispatch } from 'react-redux';
 import axios from 'axios'
-import {Button, Form, Input, message, Modal} from 'antd'
+import {Button, Form, Input, message} from 'antd'
 function Login() {
 
   const dispatch=useDispatch()
@@ -32,7 +32,7 @@ function Login() {
                 <h3>Login</h3>
                 {/* add new food item modal */}
               
-                <Form.Item name="userid" label="User ID">
+                <Form.Item name="userId" label="User ID">
                   <Input />
                 </Form.Item>
                 <Form.Item name="password" label="Password">
