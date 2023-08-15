@@ -12,7 +12,7 @@ router.post('/login',async(req,res)=>{
     try{
         const user=await UserModel.findOne({userId:req.body.userId,password:req.body.password,verified:true})
         if(user)   
-            res.send("Login Successfull")
+            res.send(user)
             else
             res.status(400).json(error)  
     }catch(error){

@@ -1,5 +1,5 @@
 // import 'antd/dist/antd.min.css';
-import {BrowserRouter,Route,Routes}from 'react-router-dom'
+import {BrowserRouter,Navigate,Route,Routes}from 'react-router-dom'
 import Homepage from './pages/Homepage';
 import ItemPage from './pages/ItemPage';
 import TablePage from './pages/TablePage';
@@ -23,3 +23,13 @@ function App() {
 }
 
 export default App;
+
+//adding protected route
+export function ProtectedRoute({children}){
+  if(localStorage.getItem('BillingSystem')){
+    return children
+  }
+  else{
+    return <Navigate to='/login' />
+  }
+}

@@ -5,6 +5,7 @@ import '../styles/authentication.css'
 import { useDispatch } from 'react-redux';
 import axios from 'axios'
 import {Button, Form, Input, message} from 'antd'
+
 function Login() {
 
   const dispatch=useDispatch()
@@ -13,6 +14,9 @@ function Login() {
     axios.post('/api/users/login',values).then((res)=>{
       dispatch({type:'hideLoading'})
       message.success('Login Successfull')
+      
+      //adding protected routes
+      localStorage.setItem("BillingSystem",JSON.stringify(res.data))
     }).catch(()=>{
       dispatch({type:'hideLoading'})
       message.error('Something went wrong')
