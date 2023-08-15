@@ -10,8 +10,11 @@ const router=express.Router();
 //Method for login the user
 router.post('/login',async(req,res)=>{
     try{
-        await UserModel.findOne({userId:req.body.userId,password:req.body.password,verified:true})   
-        res.send("Login Successfull")
+        const user=await UserModel.findOne({userId:req.body.userId,password:req.body.password,verified:true})
+        if(user)   
+            res.send("Login Successfull")
+            else
+            res.status(400).json(error)  
     }catch(error){
         res.status(400).json(error)
     }

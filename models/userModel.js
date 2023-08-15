@@ -15,7 +15,7 @@ const userSchema =mongoose.Schema({
     },
     verified:{
         type:Boolean,
-        required:false
+        required:true
     }
 },
     {timestamps:true}
