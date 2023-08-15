@@ -1,27 +1,37 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {Col, Row}from 'antd'
 import '../styles/authentication.css'
 import { useDispatch } from 'react-redux';
 import axios from 'axios'
 import {Button, Form, Input, message} from 'antd'
-
+import { useEffect } from 'react';
 function Login() {
 
   const dispatch=useDispatch()
+
+  const navigate=useNavigate()
   const onFinish=(values)=>{
     dispatch({type:'showLoading'})
     axios.post('/api/users/login',values).then((res)=>{
       dispatch({type:'hideLoading'})
       message.success('Login Successfull')
-      
+
       //adding protected routes
       localStorage.setItem("BillingSystem",JSON.stringify(res.data))
+
+      //navigate logged-in user to the homepage
+      navigate('/home')
     }).catch(()=>{
       dispatch({type:'hideLoading'})
       message.error('Something went wrong')
     })
 }
+
+  useEffect(()=>{
+    if(localStorage.getItem('BillingSystem'))
+    navigate('/home')
+  },[])
   return (
     <div className='authentication'>
         <Row>

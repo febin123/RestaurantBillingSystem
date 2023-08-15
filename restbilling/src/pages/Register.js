@@ -1,13 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link ,useNavigate} from 'react-router-dom'
 import {Col, Row}from 'antd'
 import axios from 'axios'
 import '../styles/authentication.css'
 import {Button, Form, Input, message, Modal} from 'antd'
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react'
 function Register() {
 
     const dispatch=useDispatch()
+    const navigate=useNavigate()
     const onFinish=(values)=>{
         dispatch({type:'showLoading'})
         axios.post('/api/users/register',values).then((res)=>{
@@ -18,6 +20,10 @@ function Register() {
           message.error('Something went wrong')
         })
     }
+    useEffect(()=>{
+      if(localStorage.getItem('BillingSystem'))
+      navigate('/home')
+    },[])
   return (
     <div className='authentication'>
         <Row>

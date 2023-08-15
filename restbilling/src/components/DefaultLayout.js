@@ -72,7 +72,10 @@ const [collapsed,setCollapsed] = useState(false);
             <Menu.Item key="/customers" icon={<UserOutlined />}>
               <Link to="/tables">Tables</Link>
             </Menu.Item>
-            <Menu.Item key="/logout" icon={<LogoutOutlined />}>
+            <Menu.Item key="/logout" icon={<LogoutOutlined />} onClick={()=>{
+              localStorage.removeItem('BillingSystem')
+              navigate('/login')
+            }}>
               Logout
             </Menu.Item>
           </Menu>
