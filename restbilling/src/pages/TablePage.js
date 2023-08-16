@@ -3,12 +3,12 @@ import DefaultLayout from '../components/DefaultLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './../redux/rootReducer';
 import {DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined} from '@ant-design/icons'
-import { Table } from 'antd';
+import { Table,Button, Modal } from 'antd';
 const TablePage = () => {
 
   const dispatch=useDispatch()
   const {cartItems}=useSelector(state=>state.rootReducer)
-
+  const [billChargeModal,setBillChargeModal]=useState(false)
   const[subTotal,setSubTotal]=useState(0)
 
   //handle increament
@@ -55,11 +55,17 @@ const TablePage = () => {
     <DefaultLayout>
       <Table columns={columns} dataSource={cartItems}/>
       <hr />
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end flex-column align-items-end">
         <div className="subtotal">
           <h3>SUB TOTAL: <b>€{subTotal}/-</b> </h3>
         </div>
+
+        <Button type='primary' onClick={()=>setBillChargeModal(true)}>CHARGE BILL</Button>
       </div>
+      <Modal title='Charge Bill' visible={billChargeModal}>
+
+      </Modal>
+
     </DefaultLayout>
   )
 }
