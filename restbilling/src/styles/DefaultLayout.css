@@ -115,3 +115,9 @@
     /* border: 3px solid rgb(3,38,66); */
     border: 5px solid green;
   }
+  
+  .subtotal h3{
+    color: black;
+    font-size: 25px;
+    padding: 15px;
+  }

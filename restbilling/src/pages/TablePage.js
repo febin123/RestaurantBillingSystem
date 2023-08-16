@@ -54,9 +54,10 @@ const TablePage = () => {
   return (
     <DefaultLayout>
       <Table columns={columns} dataSource={cartItems}/>
+      <hr />
       <div className="d-flex justify-content-end">
         <div className="subtotal">
-          <h3>SUB TOTAL: <b>{subTotal}</b> </h3>
+          <h3>SUB TOTAL: <b>€{subTotal}/-</b> </h3>
         </div>
       </div>
     </DefaultLayout>
