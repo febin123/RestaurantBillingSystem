@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DefaultLayout from '../components/DefaultLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './../redux/rootReducer';
@@ -8,6 +8,8 @@ const TablePage = () => {
 
   const dispatch=useDispatch()
   const {cartItems}=useSelector(state=>state.rootReducer)
+
+  const[subTotal,setSubTotal]=useState(0)
 
   //handle increament
   const handleIncreament=(record)=>{
@@ -39,9 +41,24 @@ const TablePage = () => {
       </div>},
     {title:'Actions',dataIndex:"_id",render:(id,record)=><DeleteOutlined onClick={()=>dispatch({type:'deleteTable',payload:record})}/>}
   ]
+
+  //calculating the grand total
+  useEffect(()=>{
+    let temp=0
+    cartItems.forEach((item)=>{
+      temp=temp+(item.price * item.quantity)
+    })
+
+    setSubTotal(temp)
+  },[cartItems])
   return (
     <DefaultLayout>
       <Table columns={columns} dataSource={cartItems}/>
+      <div className="d-flex justify-content-end">
+        <div className="subtotal">
+          <h3>SUB TOTAL: <b>{subTotal}</b> </h3>
+        </div>
+      </div>
     </DefaultLayout>
   )
 }
