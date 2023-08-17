@@ -53,7 +53,14 @@ const TablePage = () => {
   },[cartItems])
 
   const onFinish=(values)=>{
-     
+      const reqObject={
+        ...values,
+        subTotal,
+        tax:((subTotal/100)*10).toFixed(2),
+        totalAmount:subTotal + ((subTotal/100)*10).toFixed(2),
+        userId:JSON.parse(localStorage.getItem('BillingSystem'))._id
+      }
+      console.log(reqObject)
   }
   return (
     <DefaultLayout>
@@ -66,7 +73,7 @@ const TablePage = () => {
 
         <Button type='primary' onClick={()=>setBillChargeModal(true)}>CHARGE BILL</Button>
       </div>
-      <Modal title='Charge Bill' visible={billChargeModal} footer={false}>
+      <Modal title='Charge Bill' visible={billChargeModal} footer={false} onCancel={()=>setBillChargeModal(false)}>
 
       <Form
                 
@@ -92,7 +99,7 @@ const TablePage = () => {
 
                 <div className="charge-bill-amount">
                   <h5>SubTotal : <b>{subTotal}</b>  </h5>
-                  <h5>Tax : {((subTotal/100)*10)} </h5>
+                  <h5>Tax : {((subTotal/100)*10).toFixed(2)} </h5>
                   <hr />
                   <h2>Grand Total : <b>{subTotal+((subTotal/100)*10)}</b> </h2>
                 </div>
