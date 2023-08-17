@@ -63,8 +63,8 @@ const [collapsed,setCollapsed] = useState(false);
             <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item key="/table" icon={< UserOutlined />}>
-              <Link to="/table">Table</Link>
+            <Menu.Item key="/tables" icon={< UserOutlined />}>
+              <Link to="/tables">Table</Link>
             </Menu.Item>
             <Menu.Item key="/bills" icon={<CopyOutlined />}>
               <Link to="/bills">Bills</Link>

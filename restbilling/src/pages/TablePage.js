@@ -3,7 +3,7 @@ import DefaultLayout from '../components/DefaultLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './../redux/rootReducer';
 import {DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined} from '@ant-design/icons'
-import { Table,Button, Modal } from 'antd';
+import { Form, Input, message,Select,Table,Button, Modal  } from 'antd'
 const TablePage = () => {
 
   const dispatch=useDispatch()
@@ -51,6 +51,8 @@ const TablePage = () => {
 
     setSubTotal(temp)
   },[cartItems])
+
+  
   return (
     <DefaultLayout>
       <Table columns={columns} dataSource={cartItems}/>
@@ -63,6 +65,38 @@ const TablePage = () => {
         <Button type='primary' onClick={()=>setBillChargeModal(true)}>CHARGE BILL</Button>
       </div>
       <Modal title='Charge Bill' visible={billChargeModal}>
+
+      <Form
+                
+                layout="vertical"
+                onFinish={onFinish}
+              >
+                {/* add new food item modal */}
+                <Form.Item name="name" label="Name">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="price" label="Price">
+                  <Input />
+                </Form.Item>
+                <Form.Item name="image" label="Image URL">
+                  <Input />
+                </Form.Item>
+    
+                <Form.Item name="category" label="Category">
+                  <Select>
+                    <Select.Option value="Starter">Starter</Select.Option>
+                    <Select.Option value="Main Course">Main Course</Select.Option>
+                    <Select.Option value="Desert">Desert</Select.Option>
+                  </Select>
+                </Form.Item>
+    
+                <div className="d-flex justify-content-end">
+                  <Button htmlType="submit" type="primary">
+                    SAVE
+                  </Button>
+                </div>
+    
+          </Form>
 
       </Modal>
 
