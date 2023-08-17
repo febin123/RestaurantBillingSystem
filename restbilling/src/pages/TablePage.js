@@ -52,7 +52,9 @@ const TablePage = () => {
     setSubTotal(temp)
   },[cartItems])
 
-  
+  const onFinish=(values)=>{
+     
+  }
   return (
     <DefaultLayout>
       <Table columns={columns} dataSource={cartItems}/>
@@ -64,7 +66,7 @@ const TablePage = () => {
 
         <Button type='primary' onClick={()=>setBillChargeModal(true)}>CHARGE BILL</Button>
       </div>
-      <Modal title='Charge Bill' visible={billChargeModal}>
+      <Modal title='Charge Bill' visible={billChargeModal} footer={false}>
 
       <Form
                 
@@ -72,27 +74,32 @@ const TablePage = () => {
                 onFinish={onFinish}
               >
                 {/* add new food item modal */}
-                <Form.Item name="name" label="Name">
+                <Form.Item name="customerName" label="Customer Name">
                   <Input />
                 </Form.Item>
-                <Form.Item name="price" label="Price">
+                <Form.Item name="customerPhoneNumber" label="Phone Number">
                   <Input />
                 </Form.Item>
-                <Form.Item name="image" label="Image URL">
-                  <Input />
-                </Form.Item>
+             
     
-                <Form.Item name="category" label="Category">
+                <Form.Item name="paymentMode" label="Payment Mode">
                   <Select>
-                    <Select.Option value="Starter">Starter</Select.Option>
-                    <Select.Option value="Main Course">Main Course</Select.Option>
-                    <Select.Option value="Desert">Desert</Select.Option>
+                    <Select.Option value="cash">Cash</Select.Option>
+                    <Select.Option value="Card">Card</Select.Option>
+                 
                   </Select>
                 </Form.Item>
+
+                <div className="charge-bill-amount">
+                  <h5>SubTotal : <b>{subTotal}</b>  </h5>
+                  <h5>Tax : {((subTotal/100)*10)} </h5>
+                  <hr />
+                  <h2>Grand Total : <b>{subTotal+((subTotal/100)*10)}</b> </h2>
+                </div>
     
                 <div className="d-flex justify-content-end">
                   <Button htmlType="submit" type="primary">
-                    SAVE
+                    GENERATE BILL
                   </Button>
                 </div>
     
