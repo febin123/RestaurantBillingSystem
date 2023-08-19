@@ -56,8 +56,9 @@ const TablePage = () => {
       const reqObject={
         ...values,
         subTotal,
-        tax:((subTotal/100)*10).toFixed(2),
-        totalAmount:subTotal + ((subTotal/100)*10).toFixed(2),
+        cartItems,
+        tax:Number(((subTotal/100)*10).toFixed(2)),
+        totalAmount:Number(subTotal + Number(((subTotal/100)*10).toFixed(2))),
         userId:JSON.parse(localStorage.getItem('BillingSystem'))._id
       }
       console.log(reqObject)
@@ -81,7 +82,7 @@ const TablePage = () => {
                 onFinish={onFinish}
               >
                 {/* add new food item modal */}
-                <Form.Item name="customerName" label="Customer Name">
+                <Form.Item name="customerName" label="Table No.">
                   <Input />
                 </Form.Item>
                 <Form.Item name="customerPhoneNumber" label="Phone Number">
