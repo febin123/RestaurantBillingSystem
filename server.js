@@ -6,6 +6,9 @@ const dotanv = require("dotenv");
 require("colors");
 const connectDB=require("./config/config")
 
+//chargeBills
+const billsRoute=require("./routes/billsRoutes")
+app.use("/api/bills/",billsRoute)
 //dotenv config
 dotanv.config();
 
