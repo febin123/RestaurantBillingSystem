@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './../redux/rootReducer';
 import {DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined} from '@ant-design/icons'
 import { Form, Input, message,Select,Table,Button, Modal  } from 'antd'
+import axios from 'axios'
 const TablePage = () => {
 
   const dispatch=useDispatch()
@@ -61,7 +62,15 @@ const TablePage = () => {
         totalAmount:Number(subTotal + Number(((subTotal/100)*10).toFixed(2))),
         userId:JSON.parse(localStorage.getItem('BillingSystem'))._id
       }
-      console.log(reqObject)
+
+      axios.post('/api/bills/charge-bill',reqObject)
+      .then(()=>{
+        message.success("Bill Charged Successfully")
+      })
+      .catch(()=>{
+        message.success("Something went wrong")
+      })
+      
   }
   return (
     <DefaultLayout>
