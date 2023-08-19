@@ -6,9 +6,6 @@ const dotanv = require("dotenv");
 require("colors");
 const connectDB=require("./config/config")
 
-//chargeBills
-const billsRoute=require("./routes/billsRoutes")
-app.use("/api/bills/",billsRoute)
 //dotenv config
 dotanv.config();
 
@@ -43,3 +40,6 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server Running On Port ${PORT}`.bgCyan.white);
 });
+
+const billsRoute=require('./routes/billsRoutes')
+app.use('/api/bills/',billsRoute)

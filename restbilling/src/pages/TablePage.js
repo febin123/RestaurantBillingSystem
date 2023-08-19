@@ -68,7 +68,7 @@ const TablePage = () => {
         message.success("Bill Charged Successfully")
       })
       .catch(()=>{
-        message.success("Something went wrong")
+        message.error("Something went wrong")
       })
       
   }
