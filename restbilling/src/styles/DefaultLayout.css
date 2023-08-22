@@ -130,3 +130,6 @@
     margin-top: 0;
     margin-bottom: 0 !important;
   }
+  .bill-header {
+    border-bottom: 2px dashed rgb(77,76,76);
+  }

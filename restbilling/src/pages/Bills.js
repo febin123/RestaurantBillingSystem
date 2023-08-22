@@ -72,7 +72,7 @@ const Bills = () => {
           }} visible={printBillModalVisibility} title='Bill Details' footer={false} width={800}
           >
             <div className="bill-model">
-            <div className='d-flex justify-content-between'>
+            <div className='d-flex justify-content-between bill-header pb-2'>
                 <div>
                     <h1><b>Billing System</b></h1>
                 </div>
@@ -81,6 +81,11 @@ const Bills = () => {
                     <p>St.Patrick Terrace</p>
                     <p>12345678</p>
                 </div>
+            </div>
+            <div className="bill-customer-details">
+                <p><b>Table No.</b>:{selectedBill.customerName}</p>
+                <p><b>Phone Number.</b>:{selectedBill.customerPhoneNumber}</p>
+                <p><b>Date</b>:{selectedBill.createdAt.toString().substring(0,10)}</p>
             </div>
             </div>
     
