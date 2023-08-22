@@ -14,7 +14,7 @@ router.post("/charge-bill",async(req,res)=>{
 //get reauest to get all bills
 router.get("/get-all-bills",async(req,res)=>{
     try{
-        const bills=new BillModel.find()
+        const bills=await BillModel.find()
         res.send(bills)
     }catch(error){
         res.status(400).json(error)

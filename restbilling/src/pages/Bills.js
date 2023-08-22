@@ -16,7 +16,7 @@ const Bills = () => {
   const getAllBills = () => {
     dispatch({ type: "showLoading" });
     axios
-      .get("/api/items/get-item")
+      .get("/api/bills/get-all-bills")
       .then((response) => {
         dispatch({ type: "hideLoading" });
         setBillsData(response.data);
@@ -44,7 +44,7 @@ const Bills = () => {
     {title:'Customer',dataIndex:'customerName'},
     {title:'SubTotal',dataIndex:'subTotal'},
     {title:'Tax',dataIndex:'tax'},
-    {title:'Total',dataIndex:'totalAmount'},
+    {title:'Total',dataIndex:'total'},
     {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
       <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
        <EyeOutlined className='mx-2'onClick={()=>{}}/>
@@ -56,7 +56,7 @@ const Bills = () => {
         <DefaultLayout>
           <div className="d-flex justify-content-between">
               <h1>Food Item List</h1>
-              <button type='primary' onClick={()=>setAddEditModal(true)}>Add Item</button>
+              
           </div>
       <Table columns={columns} dataSource={billsData} bordered />
 
