@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons";
 import "../styles/DefaultLayout.css";
 import { rootReducer } from './../redux/rootReducer';
+import Customers from './../pages/Customers';
 const { Header, Sider, Content } = Layout;
 
  const DefaultLayout=({children})=>  {
@@ -73,7 +74,7 @@ const [collapsed,setCollapsed] = useState(false);
               <Link to="/items">Food Items</Link>
             </Menu.Item>
             <Menu.Item key="/customers" icon={<UserOutlined />}>
-              <Link to="/tables">Tables</Link>
+              <Link to="/customers">Customers</Link>
             </Menu.Item>
             <Menu.Item key="/logout" icon={<LogoutOutlined />} onClick={()=>{
               localStorage.removeItem('BillingSystem')
