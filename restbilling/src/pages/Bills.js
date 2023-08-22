@@ -8,6 +8,7 @@ import {Button, Form, Input, message, Modal, Select, Table  } from 'antd'
 const Bills = () => {
   const[billsData,setBillsData]=useState([])
   const[editingItem,setEditingItem]=useState(null)
+  const[printBillModalVisibility,setPrintBillModalVisibility]=useState(false)
   const[addEditModal,setAddEditModal]=useState(false) 
   const dispatch=useDispatch()
 
@@ -46,8 +47,9 @@ const Bills = () => {
     {title:'Tax',dataIndex:'tax'},
     {title:'Total',dataIndex:'total'},
     {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
+      {/* <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/> */}
       <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
-       <EyeOutlined className='mx-2'onClick={()=>{}}/>
+       <EyeOutlined className='mx-2'onClick={()=>{setPrintBillModalVisibility(true)}}/>
      </div> }
   ]
 
@@ -61,11 +63,10 @@ const Bills = () => {
       <Table columns={columns} dataSource={billsData} bordered />
 
       {/* adding & edit food item modal */}
-      {addEditModal && (
+      {printBillModalVisibility && (
           <Modal onCancel={()=>{
-            setEditingItem(null)
-            setAddEditModal(false)
-          }} visible={addEditModal} title={`${editingItem !=null ? 'Edit Food Item' : 'Add new Food Item'}`} footer={false}>
+           setPrintBillModalVisibility(false)
+          }} visible={printBillModalVisibility} title='Bill Details' footer={false}>
     
           </Modal>
       )}
