@@ -9,6 +9,7 @@ const Bills = () => {
   const[billsData,setBillsData]=useState([])
   const[editingItem,setEditingItem]=useState(null)
   const[printBillModalVisibility,setPrintBillModalVisibility]=useState(false)
+  const[selectedBill,setSelectedBill]=useState(null)
   const[addEditModal,setAddEditModal]=useState(false) 
   const dispatch=useDispatch()
 
@@ -49,7 +50,9 @@ const Bills = () => {
     {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
       {/* <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/> */}
       <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
-       <EyeOutlined className='mx-2'onClick={()=>{setPrintBillModalVisibility(true)}}/>
+       <EyeOutlined className='mx-2'onClick={()=>{
+        setSelectedBill(record)
+        setPrintBillModalVisibility(true)}}/>
      </div> }
   ]
 
@@ -66,7 +69,20 @@ const Bills = () => {
       {printBillModalVisibility && (
           <Modal onCancel={()=>{
            setPrintBillModalVisibility(false)
-          }} visible={printBillModalVisibility} title='Bill Details' footer={false}>
+          }} visible={printBillModalVisibility} title='Bill Details' footer={false} width={800}
+          >
+            <div className="bill-model">
+            <div className='d-flex justify-content-between'>
+                <div>
+                    <h1><b>Billing System</b></h1>
+                </div>
+                <div>
+                    <p>Dublin</p>
+                    <p>St.Patrick Terrace</p>
+                    <p>12345678</p>
+                </div>
+            </div>
+            </div>
     
           </Modal>
       )}
