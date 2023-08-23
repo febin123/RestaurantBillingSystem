@@ -131,5 +131,9 @@
     margin-bottom: 0 !important;
   }
   .bill-header {
-    border-bottom: 2px dashed rgb(77,76,76);
+    border-bottom: 2px dotted rgb(77,76,76);
+  }
+
+  .dotted-border{
+    border-bottom: 2px dotted rgb(77,76,76);
   }

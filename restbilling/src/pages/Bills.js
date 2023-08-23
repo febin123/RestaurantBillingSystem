@@ -101,13 +101,26 @@ const Bills = () => {
                     <p>12345678</p>
                 </div>
             </div>
-            <div className="bill-customer-details">
+            <div className="bill-customer-details my-2">
                 <p><b>Table No.</b>:{selectedBill.customerName}</p>
                 <p><b>Phone Number.</b>:{selectedBill.customerPhoneNumber}</p>
                 <p><b>Date</b>:{selectedBill.createdAt.toString().substring(0,10)}</p>
             </div>
 
-            <Table dataSource={selectedBill.cartItems} columns={tableColumns}/>
+            <Table dataSource={selectedBill.cartItems} columns={tableColumns} pagination={false}/>
+
+            <div className='dotted-border mt-2 pb-2'>
+              <p><b>SUB TOTAL</b>:{selectedBill.subTotal}</p>
+              <p><b>TAX</b>:{selectedBill.tax}</p>
+            </div>
+            <div>
+              <h2><b>GRAND TOTAL:{selectedBill.totalAmount}</b></h2>
+            </div>
+            <div className="dotted-border mt-2"></div>
+            <div className="text-center">
+              <p>Thanks</p>
+              <p>Visit Again!</p>
+            </div>
             </div>
     
           </Modal>
