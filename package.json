@@ -23,6 +23,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "react-redux": "^8.1.1",
+    "react-to-print": "^2.14.13",
     "redux": "^4.2.1"
   }
 }
