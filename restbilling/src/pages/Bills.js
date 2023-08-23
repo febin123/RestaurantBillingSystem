@@ -1,13 +1,14 @@
-import React,{useEffect,useRef,useState} from 'react'
+import React,{useEffect,useState,useRef,useMemo } from 'react'
 import DefaultLayout from '../components/DefaultLayout'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import {EditOutlined,EyeOutlined} from '@ant-design/icons'
 import {Button, Form, Input, message, Modal, Select, Table  } from 'antd'
-import ReactToPrint, { useReactToPrint } from 'react-to-print'
+import ReactToPrint from 'react-to-print';
+import { useReactToPrint } from 'react-to-print';
+function Bills()  {
 
-const Bills = () => {
-  const componentRef=useRef()
+  const componentRef = useRef();
   const[billsData,setBillsData]=useState([])
   const[editingItem,setEditingItem]=useState(null)
   const[printBillModalVisibility,setPrintBillModalVisibility]=useState(false)
@@ -60,9 +61,6 @@ const Bills = () => {
   //   console.log(values)
   // }
 
-  const handlePrint=useReactToPrint({
-    content:()=>componentRef.current,
-  })
   
   // number of columns in each food items
   const columns=[
@@ -80,6 +78,10 @@ const Bills = () => {
      </div> }
   ]
 
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
+
   return (
     <div>
         <DefaultLayout>
@@ -95,7 +97,7 @@ const Bills = () => {
            setPrintBillModalVisibility(false)
           }} visible={printBillModalVisibility} title='Bill Details' footer={false} width={800}
           >
-            <div className="bill-model" ref={componentRef}>
+            <div className="bill-model p-3" ref={componentRef}>
             <div className='d-flex justify-content-between bill-header pb-2'>
                 <div>
                     <h1><b>Billing System</b></h1>
@@ -127,10 +129,15 @@ const Bills = () => {
               <p>Visit Again!</p>
             </div>
             </div>
-    
-          <div className="d-flex justify-content-end">
-              <Button type='primary' onClick={handlePrint}>Print Bill</Button>
+
+            <div className="d-flex justify-content-end">
+                  {/* <Button type='primary' onClick={()=>{handlePrint()}}>Print Bill</Button> */}
+                  <ReactToPrint
+        trigger={() => <Button type='primary'>Print Bill</Button>}
+        content={() => componentRef.current}
+      />
           </div>
+    
           </Modal>
       )}
       </DefaultLayout>
