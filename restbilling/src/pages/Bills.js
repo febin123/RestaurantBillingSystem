@@ -33,8 +33,6 @@ const Bills = () => {
   //creating table columns for bills
   const tableColumns=[
     {title:'Name',dataIndex:'name'},
-    {title:'Image',dataIndex:'image',
-    render:(image,record)=><img src={image} alt={record.name} height="60" width="60"/>},
     {title:'Price',dataIndex:'price'},
     {title:'Quantity',dataIndex:'_id',
     render:(id,record)=>
@@ -42,6 +40,12 @@ const Bills = () => {
      <b>{record.quantity}</b>
     
       </div>},
+       {title:'Total',dataIndex:'_id',
+       render:(id,record)=>
+       <div>
+        <b>{record.quantity*record.price}</b>
+       
+         </div>}
   ]
 
 
