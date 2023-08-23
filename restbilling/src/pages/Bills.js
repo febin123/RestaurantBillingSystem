@@ -102,6 +102,8 @@ const Bills = () => {
                 <p><b>Phone Number.</b>:{selectedBill.customerPhoneNumber}</p>
                 <p><b>Date</b>:{selectedBill.createdAt.toString().substring(0,10)}</p>
             </div>
+
+            <Table dataSource={selectedBill.cartItems} columns={tableColumns}/>
             </div>
     
           </Modal>
