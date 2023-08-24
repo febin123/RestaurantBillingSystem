@@ -46,11 +46,10 @@ function Customers()  {
   
   // number of columns in each food items
   const columns=[
-    {title:'Id',dataIndex:'_id'},
     {title:'Customer',dataIndex:'customerName'},
-    {title:'SubTotal',dataIndex:'subTotal'},
-    {title:'Tax',dataIndex:'tax'},
-    {title:'Total',dataIndex:'totalAmount'},
+    {title:'Phone Number',dataIndex:'customerPhoneNumber'},
+    {title:'Created On',dataIndex:'createdAt',
+    render:(value)=><span>{value.toString().substring(0,10)}</span>},
 
   ]
 
