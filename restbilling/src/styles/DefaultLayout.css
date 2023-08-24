@@ -37,6 +37,10 @@
     border-radius: 10px !important;
     padding-top: 10px !important;
   }
+  .ant-modal-close-x{
+    background-color: white !important;
+    color: black !important;
+  }
   
   .anticon svg {
     height: 20px;
@@ -133,8 +137,12 @@
   .bill-header {
     border-bottom: 2px dotted rgb(77,76,76);
   }
+  .bill-model h2{
+    margin-bottom: 0 !important;
+  }
 
   .dotted-border{
+    margin: 5px 0;
     border-bottom: 2px dotted rgb(77,76,76);
   }
   button{
