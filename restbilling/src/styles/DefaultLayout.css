@@ -137,3 +137,10 @@
   .dotted-border{
     border-bottom: 2px dotted rgb(77,76,76);
   }
+  button{
+    background-color: #047979 !important;
+    color: white !important;
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }

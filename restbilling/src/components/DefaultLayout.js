@@ -53,7 +53,7 @@ const [collapsed,setCollapsed] = useState(false);
 
           {/* logo */}
           <div className="logo">
-            <h4 className="text-center text-light font-wight-bold mt-4">Restaurant Billing System</h4>
+            <h4 className="text-center text-light font-wight-bold mt-4">{collapsed ? 'BS' : 'Restaurant Billing System'}</h4>
           </div>
           <Menu
             theme="dark"

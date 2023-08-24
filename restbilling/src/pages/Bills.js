@@ -67,7 +67,7 @@ function Bills()  {
   // number of columns in each food items
   const columns=[
     {title:'Id',dataIndex:'_id'},
-    {title:'Customer',dataIndex:'customerName'},
+    {title:'Table No.',dataIndex:'customerName'},
     {title:'SubTotal',dataIndex:'subTotal'},
     {title:'Tax',dataIndex:'tax'},
     {title:'Total',dataIndex:'totalAmount'},
