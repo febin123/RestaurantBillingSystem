@@ -23,7 +23,9 @@ function Customers()  {
       .get("/api/bills/get-all-bills")
       .then((response) => {
         dispatch({ type: "hideLoading" });
-        setBillsData(response.data);
+        const data=response.data
+        data.reverse()
+        setBillsData(data);
       })
       .catch((error) => {
         dispatch({ type: "hideLoading" });
