@@ -49,7 +49,7 @@ const Homepage = () => {
   return (
     <div>
       <DefaultLayout>
-        <div className="d-flex">
+        <div className="d-flex categories">
           {categories.map((category)=>{
             return <div 
              onClick={()=> setSelectedCategory(category.name)} className={`d-flex category 

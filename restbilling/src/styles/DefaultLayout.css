@@ -144,3 +144,9 @@
     box-shadow: none;
     outline: none;
   }
+ @media only screen and (max-width:600px) {
+  .categories{
+    width: 100%;
+    overflow-x: scroll;
+} 
+ }
