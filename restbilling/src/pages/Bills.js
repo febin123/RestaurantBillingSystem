@@ -46,7 +46,7 @@ function Bills()  {
        {title:'Total',dataIndex:'_id',
        render:(id,record)=>
        <div>
-        <b>{record.quantity*record.price}</b>
+        <b>{record.quantity * record.price}</b>
        
          </div>}
   ]
@@ -68,7 +68,7 @@ function Bills()  {
     {title:'Customer',dataIndex:'customerName'},
     {title:'SubTotal',dataIndex:'subTotal'},
     {title:'Tax',dataIndex:'tax'},
-    {title:'Total',dataIndex:'total'},
+    {title:'Total',dataIndex:'totalAmount'},
     {title:'Actions',dataIndex:"_id",render:(id,record)=> <div className='d-flex'>
       {/* <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/> */}
       <EditOutlined className='mx-2' onClick={()=>{setEditingItem(record); setAddEditModal(true)}}/>
@@ -86,7 +86,7 @@ function Bills()  {
     <div>
         <DefaultLayout>
           <div className="d-flex justify-content-between">
-              <h1>Food Item List</h1>
+              <h1>Bill List</h1>
               
           </div>
       <Table columns={columns} dataSource={billsData} bordered />
