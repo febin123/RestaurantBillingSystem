@@ -5,8 +5,10 @@ import { rootReducer } from './../redux/rootReducer';
 import {DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined} from '@ant-design/icons'
 import { Form, Input, message,Select,Table,Button, Modal  } from 'antd'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 const TablePage = () => {
 
+  const navigate=useNavigate()
   const dispatch=useDispatch()
   const {cartItems}=useSelector(state=>state.rootReducer)
   const [billChargeModal,setBillChargeModal]=useState(false)
@@ -66,6 +68,7 @@ const TablePage = () => {
       axios.post('/api/bills/charge-bill',reqObject)
       .then(()=>{
         message.success("Bill Charged Successfully")
+        navigate('/bills')
       })
       .catch(()=>{
         message.error("Something went wrong")
