@@ -3,19 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node":"18.12.1",
-    "npm":"9.7.2"
-  },
+  "scripts": {
+    "start": "nodeconnectDe server.js",
 
-    "scripts": {
-    "client-install": "npm install --prefix client",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  "server": "nodemon server.js",
+    "restbilling": "npm start --prefix restbilling",
+    "dev": "concurrently \"npm run server\" \"npm run restbilling\"",
+    "seed": "node seeder.js"
   },
+    
   "author": "",
   "license": "ISC",
   "dependencies": {

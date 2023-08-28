@@ -45,10 +45,10 @@ const billsRoute=require('./routes/billsRoutes')
 app.use('/api/bills/',billsRoute)
 
 
-const path=require('path')
-if(process.env.NODE_ENV==='production'){
-  app.use('/',express.static('restbilling/build'))
-  app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'restbilling/build/index.html'))
-  })
-}
+// const path=require('path')
+// if(process.env.NODE_ENV==='production'){
+//   app.use('/',express.static('restbilling/build'))
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'restbilling/build/index.html'))
+//   })
+// }
